@@ -1,3 +1,6 @@
+Claude
+
+Index 1 · HTML
 <!DOCTYPE html>
 <html lang="it"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -35,13 +38,13 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 nav{display:flex;gap:6px;margin-top:10px;overflow-x:auto;max-width:96vw;padding:3px}
 nav button{border:0;background:var(--g);color:#fff;border-radius:16px;padding:7px 13px;font-size:13px;white-space:nowrap;opacity:.55;font-family:inherit;transition:.3s}
 nav button.on{opacity:1;transform:scale(1.07)}
-
+ 
 .cats{margin-top:2cqw}
 .cat{display:flex;width:100%;justify-content:space-between;align-items:center;background:none;border:0;border-bottom:.3cqw dotted #5a4a2a55;padding:3.6cqw 1cqw;font:600 5cqw Georgia,'Times New Roman',serif;color:#2a2418;cursor:pointer;text-align:left}
 .cat i{font-style:normal;color:var(--g);font-size:6cqw}
 .cat:hover,.cat:active{background:#14502f18}
 nav button.hb{background:var(--r);opacity:1}
-
+ 
 /* ===== restyling elegante ===== */
 :root{--gold:#c9a24a;--ink:#2a2418;--fh:'Playfair Display',Georgia,serif;--fb:'Cormorant Garamond',Georgia,serif}
 html,body{font-family:var(--fb)}
@@ -93,7 +96,7 @@ nav button.hb{background:var(--r);color:#fff;opacity:1}
 .home .cat{font-size:4.4cqw;padding:2.4cqw 1cqw}
 .go{border:.3cqw solid var(--gold);background:none;color:var(--g);font:600 4cqw var(--fb);letter-spacing:.12em;padding:2cqw 6cqw;border-radius:6cqw;margin-top:7cqw;cursor:pointer}
 .go:hover,.go:active{background:#14502f18}
-
+ 
 .cvimg{display:block;width:100%;height:100%;object-fit:contain}
 .chint{position:absolute;left:0;right:0;bottom:1.1%;margin:0;text-align:center;font:italic 500 3.1cqw var(--fb);letter-spacing:.06em;color:#f3ead2;animation:bl 1.8s infinite;pointer-events:none}
 .logo{width:80cqw;max-width:100%;height:auto;mix-blend-mode:multiply;margin-top:-1cqw}
@@ -121,7 +124,7 @@ const ICONS='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQD
 const MINI=GHOST.replace('class="gh" width="170"','width="48"');
 // ====== DATI: modifica qui nomi e prezzi ======
 const P=[
-
+ 
 {n:"Antipasti",i:[["Verdure grigliate","",8],["Crudo alla carrettiera","",8],["Crudo all'Italiana","",7],["Carpaccio di Bresaola","bresaola, rucola, grana",8],["Antipasto salumi x 2 persone","",10],["Misto formaggi per 2 persone","",8],["Mozzarella di bufala (4 pezzi)","",8],["Bruschetta (4 pezzi)","",4],["Bruschetta all'Italiana","rucola e grana, 4 pezzi",6]]},
 {n:"Primi",i:[["Sono consigliati dalla casa giorno per giorno", "", ]]},
 {n:"Secondi",i:[["Scaloppina al limone o vino bianco","",9],["Scaloppina ai funghi","",12],["Arrosto misto","bistecca di maiale, pancetta, salsiccia",15],["Tagliata di manzo rucola e grana","",18],["Bistecca di vitello","",15],["Salsiccia ai ferri (4 pezzi)","",10],["Hamburger di vitello (2 pezzi)","",6]],x:["Contorni",[["Patatine fritte piccola","",3],["Patatine fritte media","",4],["Patatine fritte grande","",5], ["Insalata verde","",4],["Insalata mista","insalata, pomodoro e rucola",5],["Insalata ricca","insalata, pomodori, tonno, olive, fior di latte, rucola e grana",8]]]},
@@ -133,8 +136,8 @@ const P=[
 {n:"Bevande",i:[["Acqua naturale/frizzante cl. 50","",1],["Acqua naturale/frizzante lt. 1","",2],["Thè limone/pesca lattina cl. 33","",2],["Fanta lattina cl. 33","",2],["Coca-cola lattina cl. 33","",2],["Tuborg cl. 33","",2],["Tuborg cl. 66","",4],["Heineken cl. 33","",2.5],["Corona cl. 33","",3],["Tennent's cl. 33","",3.5],["Fanta / Coca-cola lt. 1,5","",4.5],["Vino in bottiglia cl. 75","chiedere al personale di sala",""],["Amari vari","",3],["Limoncello","",2],["Grappa","",3.5],["Caffè","",1.5]]},
 {n:"Dolci",i:[["Gelato Caffè Noir","",5],["Dolce della Casa (1 porzione)","",3]]}
 ];
-
-
+ 
+ 
 // ====== LINGUE: aggiungi qui nuove lingue (es. T.de, T.fr) e il pulsante in #lang ======
 const T={en:{D:{
 "Antipasti":"Starters","Secondi":"Main Courses","Insalate & Fritti":"Salads & Fried","Pizze":"Pizzas","Panini":"Sandwiches","Bevande":"Drinks","Dolci":"Desserts",
@@ -197,10 +200,12 @@ function mount(book,h,toIndex){
   pf.loadFromHTML(book.querySelectorAll(".page"));
   if(toIndex)pf.turnToPage(1);
   const pos=e=>{const r=book.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
-  let down=false;
-  book.addEventListener("pointerdown",e=>{if(e.target.closest(".go,.cat"))return;if(e.button>0)return;down=true;book.setPointerCapture(e.pointerId);pf.startUserTouch(pos(e));e.preventDefault()});
-  book.addEventListener("pointermove",e=>{pf.userMove(pos(e),e.pointerType!=="mouse"&&down)});
-  const end=e=>{if(!down)return;down=false;pf.userStop(pos(e))};
+  let down=false,sx=0;const G=3;
+  book.addEventListener("pointerdown",e=>{if(e.target.closest(".go,.cat"))return;if(e.button>0)return;down=true;book.setPointerCapture(e.pointerId);sx=pos(e).x;pf.startUserTouch(pos(e));e.preventDefault()});
+  const W=()=>book.getBoundingClientRect().width;
+  const amp=p=>down?{x:Math.max(0,Math.min(W(),sx+(p.x-sx)*G)),y:p.y}:p;
+  book.addEventListener("pointermove",e=>{pf.userMove(amp(pos(e)),e.pointerType!=="mouse"&&down)});
+  const end=e=>{if(!down)return;const p=pos(e),dx=p.x-sx;if(Math.abs(dx)>=W()*.1){pf.userMove({x:dx<0?0:W(),y:p.y},true)}down=false;pf.userStop(p)};
   book.addEventListener("pointerup",end);book.addEventListener("pointercancel",end);
  }catch(err){book.innerHTML="<p style='padding:20px'>"+tr("Impossibile caricare il libro. Controlla la connessione.")+"</p>"}
 }
@@ -210,7 +215,7 @@ function show(c,toIndex){
  const book=document.createElement("div");book.id="book";stage.appendChild(book);
  curCat=c;btns.forEach((b,n)=>b.classList.toggle("on",n===c+1));btns[c+1].scrollIntoView({inline:"center",block:"nearest"});
  if(c<0){
-  mount(book,`<div class="page hard" data-density="hard"><div class="cv story"><img class="logo" src="${LOGO}" alt="Casper"><h2>${tr("Menù")}</h2><h3>${ST[0]}</h3><div class="tx"><p>${ST[1]}</p><p>${ST[2]}</p><p>${ST[3]}</p></div><img class="ico" src="${ICONS}" alt=""><p class="hint">${tr("Trascina o tocca l'angolo per sfogliare")}</p></div></div><div class="page hard home" data-density="hard"><div class="cv"><img class="logo" src="${LOGO}" alt="Casper"><p class="pick">${tr("Scegli una sezione")}</p><div class="cats">${cats.map((t,n)=>`<button class="cat" style="--n:${n}" data-c="${n}"><em>0${n+1}</em><span>${t}</span><small>${cn(t)} ${tr("voci")}</small><i>›</i></button>`).join("")}</div><div class="cop" style="--n:${cats.length}">${tr("Coperto € 2,00")}</div></div></div>`,toIndex);
+  mount(book,`<div class="page hard"><div class="cv story"><img class="logo" src="${LOGO}" alt="Casper"><h2>${tr("Menù")}</h2><h3>${ST[0]}</h3><div class="tx"><p>${ST[1]}</p><p>${ST[2]}</p><p>${ST[3]}</p></div><img class="ico" src="${ICONS}" alt=""><p class="hint">${tr("Trascina o tocca l'angolo per sfogliare")}</p></div></div><div class="page hard home"><div class="cv"><img class="logo" src="${LOGO}" alt="Casper"><p class="pick">${tr("Scegli una sezione")}</p><div class="cats">${cats.map((t,n)=>`<button class="cat" style="--n:${n}" data-c="${n}"><em>0${n+1}</em><span>${t}</span><small>${cn(t)} ${tr("voci")}</small><i>›</i></button>`).join("")}</div><div class="cop" style="--n:${cats.length}">${tr("Coperto € 2,00")}</div></div></div>`,toIndex);
   return}
  const t=cats[c],pg=paginate(t);
  let h=`<div class="page hard" data-density="hard"><div class="cv"><img class="logo" style="width:46cqw" src="${LOGO}" alt="Casper"><hr class="orn"><h1 style="font-size:8.5cqw">${t}</h1><p>${cn(t)} ${tr("voci")}</p><p class="hint">${tr("Trascina o tocca l'angolo per sfogliare")}</p></div></div>`;
@@ -228,3 +233,4 @@ lg.onclick=e=>{const l=e.target.dataset.l;if(!l||l===L)return;try{localStorage.s
 let s0=-1;try{const v=sessionStorage.getItem("cat");sessionStorage.removeItem("cat");if(v!==null&&+v>=0&&+v<cats.length)s0=+v}catch(e){}
 show(s0);
 </script></body></html>
+Claude ha terminato la risposta
