@@ -42,7 +42,7 @@ nav button.on{opacity:1;transform:scale(1.07)}
 .cat:hover,.cat:active{background:#14502f18}
 nav button.hb{background:var(--r);opacity:1}
  
-/* ===== restyling elegante ===== */
+
 :root{--gold:#c9a24a;--ink:#2a2418;--fh:'Playfair Display',Georgia,serif;--fb:'Cormorant Garamond',Georgia,serif}
 html,body{font-family:var(--fb)}
 #book{filter:drop-shadow(0 2.5vh 4vh #0005)}
@@ -135,7 +135,7 @@ const P=[
 ];
  
  
-// ====== LINGUE: aggiungi qui nuove lingue (es. T.de, T.fr) e il pulsante in #lang ======
+
 const T={en:{D:{
 "Antipasti":"Starters","Secondi":"Main Courses","Insalate & Fritti":"Salads & Fried","Pizze":"Pizzas","Panini":"Sandwiches","Bevande":"Drinks","Dolci":"Desserts",
 "Pizze al piatto":"Plated Pizzas","Contorni":"Sides","Friggitoria":"Fried Bites"," (segue)":" (cont.)",
@@ -167,7 +167,7 @@ const blocks=[];
 P.forEach(p=>{const t=p.n.replace(/ \d$/,"");blocks.push({t,h:p.h||t,i:p.i,note:p.note});if(p.x)blocks.push({t,h:p.x[0],i:p.x[1]})});
 const cats=[...new Set(blocks.map(b=>b.t))];
 const cn=t=>blocks.filter(b=>b.t===t).reduce((a,b)=>a+b.i.length,0);
-// impagina SOLO la sezione scelta (le "Pizze 1/2/3" diventano un'unica sezione Pizze)
+
 function paginate(t){
  const pages=[];let cur=null,prev=null;
  const np=()=>{cur={h:"",y:0};pages.push(cur)};
